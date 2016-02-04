@@ -25,9 +25,16 @@ class ResumeController extends Controller
      */
     public function editAction()
     {
+        $em = $this->getDoctrine()->getManager();
+
+        $generalSkills = $em->getRepository('ResumeBundle:GeneralSkill')->findAll();
+        $specificSkills = $em->getRepository('ResumeBundle:SpecificSkill')->findAll();
+
         return $this->render('ResumeBundle:Resume:edit.html.twig', array(
-            // ...
+            'generalSkills' => $generalSkills,
+            'specificSkills' => $specificSkills,
         ));
+
     }
 
 }

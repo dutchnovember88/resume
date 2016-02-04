@@ -3,10 +3,90 @@
 {% block title %}Resume edit{% endblock %}
 
 {% block body %}
-<h1>Resume - edit</h1>
+
 <div class="container">
     <div class="row">
         <div class="col-md-12">
+        <h1>Resume - edit</h1>
+        <table class="table table-condensed table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Type</th>
+                    <th>Level</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for generalSkill in generalSkills %}
+                <tr>
+                    <td><a href="{{ path('generalskill_show', { 'id': generalSkill.id }) }}">{{ generalSkill.id }}</a></td>
+                    <td>{{ generalSkill.type }}</td>
+                    <td>{{ generalSkill.level }}</td>
+                    <td>{{ generalSkill.description }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('generalskill_show', { 'id': generalSkill.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('generalskill_edit', { 'id': generalSkill.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('generalskill_new') }}">Create a new entry</a>
+            </li>
+        </ul>
+      </div>
+  </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-striped table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for specificSkill in specificSkills %}
+                <tr>
+                    <td><a href="{{ path('specificskill_show', { 'id': specificSkill.id }) }}">{{ specificSkill.id }}</a></td>
+                    <td>{{ specificSkill.type }}</td>
+                    <td>{{ specificSkill.category }}</td>
+                    <td>
+                        <ul>
+                            <li>
+                                <a href="{{ path('specificskill_show', { 'id': specificSkill.id }) }}">show</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('specificskill_edit', { 'id': specificSkill.id }) }}">edit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <ul>
+            <li>
+                <a href="{{ path('specificskill_new') }}">Create a new entry</a>
+            </li>
+        </ul>
         </div>
     </div>
 </div>
