@@ -20,4 +20,14 @@ class ResumeController extends Controller
         ));
     }
 
+    /**
+     * @Route("/edit")
+     */
+    public function flatAction()
+    {
+        return $this->render('ResumeBundle:Resume:edit.html.twig', array(
+            // ...
+        ));
+    }
+
 }
