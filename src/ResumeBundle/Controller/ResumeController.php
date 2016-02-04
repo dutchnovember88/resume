@@ -23,7 +23,7 @@ class ResumeController extends Controller
     /**
      * @Route("/edit")
      */
-    public function flatAction()
+    public function editAction()
     {
         return $this->render('ResumeBundle:Resume:edit.html.twig', array(
             // ...
