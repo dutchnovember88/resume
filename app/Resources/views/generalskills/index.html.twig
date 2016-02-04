@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>GeneralSkills list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Type</th>
+                <th>Level</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for generalSkill in generalSkills %}
+            <tr>
+                <td><a href="{{ path('generalskills_show', { 'id': generalSkill.id }) }}">{{ generalSkill.id }}</a></td>
+                <td>{{ generalSkill.type }}</td>
+                <td>{{ generalSkill.level }}</td>
+                <td>{{ generalSkill.description }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('generalskills_show', { 'id': generalSkill.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('generalskills_edit', { 'id': generalSkill.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('generalskills_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}
